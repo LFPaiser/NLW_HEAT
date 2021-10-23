@@ -1,0 +1,21 @@
+-- CreateTable
+CREATE TABLE "HEAT_USERS" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "github_id" INTEGER NOT NULL,
+    "name" TEXT NOT NULL,
+    "login" TEXT NOT NULL,
+    "avatar_url" TEXT NOT NULL,
+    "pix" TEXT
+);
+
+-- CreateTable
+CREATE TABLE "HEAT_MESSAGES" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "text" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "user_id" TEXT NOT NULL,
+    CONSTRAINT "HEAT_MESSAGES_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "HEAT_USERS" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateIndex
+CREATE UNIQUE INDEX "HEAT_USERS_pix_key" ON "HEAT_USERS"("pix");
