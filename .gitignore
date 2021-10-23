@@ -1,1 +1,10 @@
-./node_heat/prisma/dev.db
+node_modules
+
+#node
+.env
+
+#web
+.DS_Store
+dist
+dist-ssr
+*.local
